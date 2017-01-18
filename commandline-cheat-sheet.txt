@@ -1,0 +1,146 @@
+This is my cheat sheet
+
+cd (change directory)
+	cd .. (move to higher-order category)
+
+pwd (show current directory)
+
+ls (lists files and folders in a directory)
+
+touch (create .txt file)
+
+mkdir (make new directory / folder)
+
+rm (remove file / folder... be careful using!)
+
+up arrow key (populates command line with previous command)
+
+echo (default prints out in command window what text is put in "echoes it")
+	echo "text" > (sends text in "" to designated file)
+		e.g., echo "This is my cheat sheet" > cheat-sheet.txt
+		above puts "This is my cheat sheet" into the cheat-sheet.txt 
+
+cat (check contents of file)
+
+tab key after typing few letters of root will auto-complete rest of name
+
+| (pipes output of one command into the input for another command)
+
+wc (word count)
+
+-w (creates a flag for number of words)
+
+cat "filename" | sort (sort contents of file or folder alphabetically)
+	e.g., cat cheat-sheet.txt | sort
+
+clear (clears terminal text)
+
+man "command" (lists manual for a particular command)
+
+pwd - show the current (or "working") directory. Stands for "print working directory"
+
+ls - show the files and folders in the working directory. I think of it as standing for "list stuff," but it's probably just short for "list."
+
+cd - move to a directory, i.e. cd Desktop will move to the "Desktop" folder. Some special cases:
+
+ctrl c (cancel out, get command line back)
+q return to command line when looking through text
+
+count entries .csv (cat "filename.csv" | wc -l)
+This tells us there are 100,001 lines in our file. The wc tool stands for "word count," but it can also count characters and lines in a file. We tell wc to count lines by using the -l flag. If we wanted to count characters, we could use wc -m.
+
+To find and remove duplicate lines, we can use the uniq command. Let's try it out:
+
+$ cat nypl_items.csv | uniq | wc -l
+99999
+OK, the count went down by two because the uniq command removed the duplicate lines. But which lines were duplicated?
+
+$ $ cat nypl_items.csv | uniq -d
+[...]
+The uniq command with the -d flag prints out the lines that have duplicates.
+
+**** from github ****
+
+cd .. - go to the directory above
+cd ~ go to your "home" directory, i.e. /Users/
+cd (by itself) also goes to the home directory
+cd - go to the last directory you were in before the current
+cd ../.. travel two directories up
+cd Documents/thesis-drafts move two directories, from the home folder to "thesis-drafts," skipping "Documents"
+touch <filename> - Create an empty text file named in your current directory.
+
+echo "Hello from the command line" - Print out any text you give it, in this case "Hello from the command line"
+
+cat <filename> - Print the contents of a file to the screen, in this case the contents of <filename>
+
+> - Redirects printed output to a text file, as in echo "this is some text" > hello.txt
+
+rev - Reverses the text you give it, i.e. echo "Hello there" | rev
+
+| - Pipe symbol. Takes output from one command and uses it as input for another command.
+
+less <filename> - Print out the contents of a file in a paginated form. Use <Control-v> and <Alt-v> (or <Command-v and <Option-v>) to move up and down. Press q to quit.
+
+head <filename> - Print the first section of a file
+
+tail <filename> - Print the last section of a file
+
+wc -l - Takes input and returns the number of lines in that input, as in cat <filename> | wc -l
+
+uniq - Remove duplicate lines from input, as in cat <filename> | uniq. To show the duplicate files, use uniq -d.
+
+mv - Move or rename a file. For example, mv file1 file2 will rename file to file2. You can also specify another destination, so that mv file1 ~ will move file1 to the home folder without renaming it.
+
+<tab> - The <tab> key on your keyboard will complete names of commands and files. Start typing a filename and hit tab twice to see all possible acceptable completions. If there is only one possibility, the rest of the name will be filled in for you.
+
+<up> - The <up> key will fill in the last command you ran. Hit it multiple times to cycle through the last commands you've entered.
+
+man <command name> - The man or manual command will provide information on any UNIX command. Try man ls, man grep, or man man.
+
+exit - Exit the terminal session. You can also use <Control-d>
+
+sudo - Run before a command to run it as an administrator. You will need to enter your password, and note that no asterisks or special characters will appear as you type.
+
+su - Become the root user of the system. Your $ prompt will change to a # prompt.
+
+!! - Run the last command. To run the last command you entered with administrative privileges, use sudo !!
+
+* - refer to all files and folders in a directory, i.e., cat *.txt
+
+clear or <Control-l> - Clear the terminal window.
+
+which - Show where a command is stored on your system, i.e. which python
+
+history - See the previous commands you've entered in the terminal. Useful in conjunction with grep
+
+cp - Copy a file. cp file1 file2 will make a copy of file1 named file2. Can be used with the -r flag to copy whole folders.
+
+rm - This command can be dangerous, so use it carefully. Removes a file or files. If used with the wrong flags or in the wrong place, you can delete a lot of important files, so be careful with this one.
+
+rmdir - Remove an empty directory.
+
+. and .. - . Refers to the folder you're in, while .. refers to the folder above.
+
+.hello.txt - Any file with a . in front of its name is a hidden file. You won't see it in ls or in the GUI. To reveal hidden files, use ls -A
+
+ping - Use ping google.com to see if your internet is working.
+
+df -hl - Tells you how much hard drive space you have left.
+
+top - Monitor which processes are using up your memory
+
+kill and killall - Kill a particular process or kill a category of processes by name. Try killall chrome or killall firefox
+
+sudo shutdown -r - Reboot the computer. shutdown -h turns off the computer.
+
+time - Use before a command to find out how long that command takes to run.
+
+uptime - Tells how long your computer has been on.
+
+Not particularly useful commands
+
+cal - Show a calendar.
+
+telnet towel.blinkenlights.nl - Watch Star Wars in the terminal. Because.
+
+say "Hello there" - Have your computer talk to you. (Use espeak on Linux.)
